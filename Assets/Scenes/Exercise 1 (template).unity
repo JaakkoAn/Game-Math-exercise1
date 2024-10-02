@@ -840,13 +840,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658184023392465616}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22, y: 39.5, z: 0}
+  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22, y: 41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8658184023392300798}
-  m_Father: {fileID: 8658184023392300794}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8658184023392300786
 Transform:
@@ -856,12 +855,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658184023392465618}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22, y: 26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8658184023392300798}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8658184023392300794
 Transform:
@@ -875,8 +874,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8658184023392300784}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &8658184023392300796
@@ -902,13 +900,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658184023392465630}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22, y: 41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8658184023392300786}
-  m_Father: {fileID: 8658184023392300784}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8658184023392465616
 GameObject:
@@ -942,6 +939,7 @@ GameObject:
   - component: {fileID: 8658184023394724880}
   - component: {fileID: 8658184023395725010}
   - component: {fileID: 8658184023395725011}
+  - component: {fileID: 8658184023395725012}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Untagged
@@ -997,6 +995,7 @@ GameObject:
   - component: {fileID: 8658184023392300798}
   - component: {fileID: 8658184023395725020}
   - component: {fileID: 8658184023394724892}
+  - component: {fileID: 8658184023395725021}
   m_Layer: 0
   m_Name: Cable
   m_TagString: Untagged
@@ -1270,6 +1269,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8658184023395725012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658184023392465618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94884f2f0a1c2cd4e91992300b546e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cable: {fileID: 8658184023392300798}
+  hookYOffset: -2
 --- !u!33 &8658184023395725016
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1309,6 +1322,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8658184023392465630}
   m_Mesh: {fileID: 4300002, guid: b75ef94dd86ecb34eb9e252b92b6761c, type: 3}
+--- !u!114 &8658184023395725021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8658184023392465630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d9b7cf5c777f94988526f6522f2216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trolley: {fileID: 8658184023392300784}
+  hook: {fileID: 8658184023392300786}
+  cableYOffset: -2
+  hookYOffset: -10
 --- !u!33 &8658184023395725022
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1330,9 +1359,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trolleySlider: {fileID: 527297159}
+  crane: {fileID: 8658184023392300794}
   minX: -22
   maxX: -10
   yPosition: 39.5
+  zOffset: 0
 --- !u!1001 &8685051053018706934
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1458,6 +1489,9 @@ SceneRoots:
   - {fileID: 2031002224}
   - {fileID: 8658184023392300796}
   - {fileID: 8658184023392300794}
+  - {fileID: 8658184023392300784}
+  - {fileID: 8658184023392300798}
+  - {fileID: 8658184023392300786}
   - {fileID: 601031390}
   - {fileID: 363527139}
   - {fileID: 6023892515792536319}
