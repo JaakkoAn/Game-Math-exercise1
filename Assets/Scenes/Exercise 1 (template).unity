@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crane: {fileID: 8658184023392300794}
+  concreteStack: {fileID: 6023892515792536319}
   rotationSpeed: 30
 --- !u!4 &82596002
 Transform:
@@ -162,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 82596000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.432276, y: 45.59841, z: -20.719326}
+  m_LocalPosition: {x: -0.05, y: 45.59841, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -758,7 +759,7 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 4.6312428, y: 6.7011766, z: 7.11424}

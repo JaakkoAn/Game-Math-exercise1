@@ -1,15 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
 
 public class CraneTargeting : MonoBehaviour
 {
     public Transform crane;         // Reference to the crane's rotating part
+    public Transform concreteStack; // Reference to the concrete stack (target)
     public float rotationSpeed = 50f; // Speed of crane rotation
     private bool isRotating = false;
-    private float targetRotationAngle;
-    private float rotationAmount;
+    private float targetAngle;
 
     void Update()
     {
@@ -21,39 +20,59 @@ public class CraneTargeting : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                // Start rotating the crane if any object is clicked
-                isRotating = true;
+                // Check if the concrete stack was clicked
+                if (hit.transform == concreteStack)
+                {
+                    // Start rotating the crane
+                    isRotating = true;
 
-                // Set the target rotation to 180 degrees from the current angle
-                targetRotationAngle = 180f;
-                rotationAmount = 0f; // Reset the amount rotated so far
+                    // Calculate direction to the concrete stack, flatten the Y axis
+                    Vector3 directionToStack = (concreteStack.position - crane.position);
+                    directionToStack.y = 0f; // Ignore the vertical difference
+
+                    // Calculate the signed angle between crane's forward and the stack
+                    targetAngle = Vector3.SignedAngle(crane.forward, directionToStack, Vector3.up);
+                }
             }
         }
 
-        // Rotate the crane if in rotating state
+        // Rotate the crane if it is rotating
         if (isRotating)
         {
-            RotateCrane180Degrees();
+            RotateCraneTowardsTarget();
         }
     }
 
-    void RotateCrane180Degrees()
+    void RotateCraneTowardsTarget()
     {
-        // Rotate the crane by small steps towards 180 degrees
+        // Smoothly rotate the crane towards the target angle
         float step = rotationSpeed * Time.deltaTime;
 
-        if (rotationAmount < targetRotationAngle) // If we haven't completed the 180-degree rotation
+        // Check if the target angle is sufficiently small to stop rotating
+        if (Mathf.Abs(targetAngle) > 0.5f) // Stopping threshold
         {
-            crane.Rotate(0f, step, 0f);  // Rotate by the step amount
-            rotationAmount += step;      // Keep track of how much we've rotated
+            // Rotate the crane based on the sign of the target angle
+            float rotationAmount = Mathf.Sign(targetAngle) * step;
+            crane.Rotate(0f, rotationAmount, 0f);
+
+            // Reduce the target angle by the amount rotated
+            targetAngle -= rotationAmount;
         }
         else
         {
-            // Stop rotating once 180 degrees is reached
+            // Stop rotating once close enough
             isRotating = false;
         }
     }
 }
+
+
+
+
+
+
+
+
 
 
 
